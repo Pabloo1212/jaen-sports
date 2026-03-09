@@ -53,10 +53,22 @@ function initNavigation() {
     toggle.addEventListener('click', () => {
       toggle.classList.toggle('active');
       nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', nav.classList.contains('open'));
+      const isOpen = nav.classList.contains('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+
+      const header = document.getElementById('site-header');
+      if (header) header.classList.toggle('nav-open', isOpen);
+      document.body.classList.toggle('nav-open', isOpen);
     });
     nav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => { nav.classList.remove('open'); toggle.classList.remove('active'); });
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        const header = document.getElementById('site-header');
+        if (header) header.classList.remove('nav-open');
+        document.body.classList.remove('nav-open');
+      });
     });
   }
 
