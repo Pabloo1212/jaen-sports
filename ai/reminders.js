@@ -55,7 +55,7 @@ const JaenReminders = (() => {
     }
 
     function checkPaymentReminders() {
-        const user = JaenDB.getUser();
+        const user = typeof JaenAuth !== 'undefined' ? JaenAuth.getCurrentUser() : null;
         if (!user || !user.payments) return;
 
         const pending = user.payments.filter(p => p.status === 'pending');
