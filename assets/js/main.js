@@ -401,8 +401,34 @@ function renderProfileData() {
   if (tabsEl) tabsEl.style.display = '';
   document.querySelectorAll('.tab-content').forEach(c => c.style.display = '');
 
-  // Header
-  const nameEl = document.getElementById('profile-name');
+  // Si antes mostramos "Inicia sesión", destruimos profile-name/avatar; hay que restaurar la estructura
+  let nameEl = document.getElementById('profile-name');
+  if (!nameEl) {
+    profileHeader.innerHTML = `
+      <div class="avatar avatar-xl" id="profile-avatar">?</div>
+      <div class="profile-info">
+        <h2 id="profile-name">—</h2>
+        <p style="color:var(--color-gray-500)" id="profile-location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;display:inline-block;vertical-align:-2px;margin-right:4px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Jaén Capital
+        </p>
+        <div class="profile-stats">
+          <div class="profile-stat"><div class="profile-stat-value" id="stat-played">0</div><div class="profile-stat-label">Jugados</div></div>
+          <div class="profile-stat"><div class="profile-stat-value" id="stat-organized">0</div><div class="profile-stat-label">Organizados</div></div>
+          <div class="profile-stat"><div class="profile-stat-value" id="stat-reliability">—</div><div class="profile-stat-label">Fiabilidad</div></div>
+        </div>
+      </div>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:8px;">
+        <button class="btn btn-secondary btn-sm" id="edit-profile-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Editar perfil</button>
+        <button class="btn btn-ghost btn-sm" style="color:var(--color-error-600);border:1px solid var(--color-error-200);background:var(--color-error-50);" id="logout-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;display:inline-block;vertical-align:-2px;margin-right:2px"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Cerrar sesión</button>
+      </div>`;
+    nameEl = document.getElementById('profile-name');
+    // Re-bind edit and logout
+    const editBtn = document.getElementById('edit-profile-btn');
+    if (editBtn) editBtn.addEventListener('click', () => { if (!JaenAuth.requireLogin()) return; const t = document.querySelector('[data-tab="settings"]'); if (t) t.click(); });
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) logoutBtn.addEventListener('click', () => JaenAuth.logout());
+  }
+
   if (nameEl) nameEl.textContent = user.name;
   const avatarEl = document.getElementById('profile-avatar');
   if (avatarEl) {
