@@ -19,8 +19,8 @@ const JaenAuth = (() => {
         }
     }
 
-    // Auth state listener
-    if (window.supabase) {
+    function setupAuth() {
+        if (!window.supabase) return false;
         window.supabase.auth.onAuthStateChange(async (event, session) => {
             if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED' || event === 'INITIAL_SESSION') {
                 if (session && session.user) {
@@ -33,11 +33,29 @@ const JaenAuth = (() => {
             }
         });
         initSession();
-        // Tras redirect OAuth la URL puede tener hash; repetir init y actualizar header
         setTimeout(initSession, 400);
         setTimeout(function () {
             if (typeof window.updateHeaderAuth === 'function') window.updateHeaderAuth();
         }, 1200);
+        return true;
+    }
+
+    // El script de Supabase es type="module" (asíncrono): a veces auth.js se ejecuta antes de que window.supabase exista.
+    // Esperamos a que esté disponible antes de registrar el listener y cargar la sesión.
+    if (window.supabase) {
+        setupAuth();
+    } else {
+        let attempts = 0;
+        const maxAttempts = 50;
+        const t = setInterval(function () {
+            attempts++;
+            if (window.supabase) {
+                clearInterval(t);
+                setupAuth();
+            } else if (attempts >= maxAttempts) {
+                clearInterval(t);
+            }
+        }, 100);
     }
 
     async function fetchUserProfile(userId, userMetadata = null) {
