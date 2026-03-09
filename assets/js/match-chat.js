@@ -3,22 +3,24 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Only run if we're on the chat page
     if (!document.getElementById('chat-sidebar-list')) return;
 
-    // Enforce login immediately
-    if (!JaenAuth.isLoggedIn()) {
-        document.body.innerHTML = `
-        <div style="height:100vh;display:flex;align-items:center;justify-content:center;background:#f8fafc;flex-direction:column;text-align:center">
-            <h3>Debes iniciar sesión para ver tus chats</h3>
-            <p style="color:var(--color-gray-500);margin-bottom:20px">Accede a tu cuenta para coordinar tus partidos.</p>
-            <a href="index.html" class="btn btn-primary">Volver al inicio</a>
-        </div>`;
-        setTimeout(() => window.location.href = 'index.html', 3000);
-        return;
+    function checkAndInit() {
+        if (JaenAuth.isLoggedIn()) {
+            initChatPage();
+        } else {
+            document.getElementById('chat-sidebar-list').innerHTML = '';
+            document.querySelector('.chat-layout').innerHTML = `
+            <div style="width:100%;height:calc(100vh - 80px);display:flex;align-items:center;justify-content:center;background:#f8fafc;flex-direction:column;text-align:center;padding:24px">
+                <h3>Debes iniciar sesión para ver tus chats</h3>
+                <p style="color:var(--color-gray-500);margin-bottom:20px">Accede a tu cuenta para coordinar tus partidos.</p>
+                <a href="index.html" class="btn btn-primary">Volver al inicio</a>
+            </div>`;
+            if (typeof updateHeaderAuth === 'function') updateHeaderAuth();
+        }
     }
 
-    initChatPage();
+    setTimeout(checkAndInit, 1200);
 });
 
 let chatCurrentMatchId = null;

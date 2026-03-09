@@ -6,6 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initAuthGuards();
+  initCreatePageGuard();
   initScrollEffects();
   initFAQ();
   renderFeatures();
@@ -20,6 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ========== AUTH GUARDS ==========
+function initCreatePageGuard() {
+  if (!document.getElementById('create-form')) return;
+  setTimeout(() => {
+    if (!JaenAuth.isLoggedIn()) {
+      window.location.href = 'index.html?login=create';
+      return;
+    }
+  }, 1500);
+}
+
 function initAuthGuards() {
   document.querySelectorAll('a[href="create.html"]').forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -352,16 +363,18 @@ function initProfilePage() {
   // Save settings
   const saveBtn = document.getElementById('save-settings');
   if (saveBtn) {
-    saveBtn.addEventListener('click', () => {
+    saveBtn.addEventListener('click', async () => {
       if (!JaenAuth.isLoggedIn()) { JaenAuth.requireLogin(); return; }
       const avatar = document.getElementById('setting-avatar').value;
       const name = document.getElementById('setting-name').value;
       const email = document.getElementById('setting-email').value;
       const phone = document.getElementById('setting-phone').value;
-      JaenAuth.updateProfile({ avatar, name, email, phone });
-      showToast('success', 'Perfil actualizado', 'Tus datos se han guardado correctamente.');
-      renderProfileData();
-      updateHeaderAuth();
+      const updated = await JaenAuth.updateProfile({ avatar, name, email, phone });
+      if (updated) {
+        showToast('success', 'Perfil actualizado', 'Tus datos se han guardado correctamente.');
+        renderProfileData();
+        updateHeaderAuth();
+      }
     });
   }
 

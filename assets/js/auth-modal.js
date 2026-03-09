@@ -455,6 +455,9 @@
         window.updateHeaderAuth();
         setTimeout(window.updateHeaderAuth, 600);
         setTimeout(window.updateHeaderAuth, 2000);
+        if (window.location.search.includes('login=create') && !JaenAuth.isLoggedIn()) {
+            setTimeout(() => openAuthModal('main'), 500);
+        }
     });
     // Al volver a la pestaña, actualizar por si acabo de llegar del redirect de Google
     document.addEventListener('visibilitychange', () => {
