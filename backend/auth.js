@@ -8,17 +8,21 @@ const JaenAuth = (() => {
     // Load session on startup (y tras redirect de Google OAuth)
     async function initSession() {
         if (!window.supabase) return;
-        const { data: { session } } = await window.supabase.auth.getSession();
-        if (session && session.user) {
-            await fetchUserProfile(session.user.id, session.user.user_metadata);
-            if (typeof window.updateHeaderAuth === 'function') window.updateHeaderAuth();
+        try {
+            const { data: { session } } = await window.supabase.auth.getSession();
+            if (session && session.user) {
+                await fetchUserProfile(session.user.id, session.user.user_metadata);
+                if (typeof window.updateHeaderAuth === 'function') window.updateHeaderAuth();
+            }
+        } catch (e) {
+            console.error('initSession error', e);
         }
     }
 
     // Auth state listener
     if (window.supabase) {
         window.supabase.auth.onAuthStateChange(async (event, session) => {
-            if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
+            if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED' || event === 'INITIAL_SESSION') {
                 if (session && session.user) {
                     await fetchUserProfile(session.user.id, session.user.user_metadata);
                     if (typeof window.updateHeaderAuth === 'function') window.updateHeaderAuth();
@@ -29,6 +33,11 @@ const JaenAuth = (() => {
             }
         });
         initSession();
+        // Tras redirect OAuth la URL puede tener hash; repetir init y actualizar header
+        setTimeout(initSession, 400);
+        setTimeout(function () {
+            if (typeof window.updateHeaderAuth === 'function') window.updateHeaderAuth();
+        }, 1200);
     }
 
     async function fetchUserProfile(userId, userMetadata = null) {
