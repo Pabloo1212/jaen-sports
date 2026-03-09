@@ -1,0 +1,10 @@
+{
+  "name": "jaen-sports",
+  "version": "1.0.0",
+  "description": "Plataforma para organizar partidos deportivos en Jaén",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/write-config.js",
+    "vercel-build": "node scripts/write-config.js"
+  }
+}

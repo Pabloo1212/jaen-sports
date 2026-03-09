@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneos — JaénSports</title>
+    <meta name="description"
+        content="Próximamente grandes torneos deportivos en Jaén. Apunta a tu equipo, compite por grandes premios y disfruta del mejor ambiente.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jaensports.es/torneos.html">
+    <link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/components-ext.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<style>
+    .coming-soon-hero {
+        padding: clamp(60px, 10vw, 120px) 0;
+        text-align: center;
+        background: linear-gradient(135deg, var(--color-primary-50) 0%, #fff 100%);
+        border-bottom: 1px solid var(--color-gray-200);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .coming-soon-badge {
+        display: inline-block;
+        padding: 6px 16px;
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: var(--color-primary-600);
+        background: var(--color-primary-50);
+        border: 1px solid var(--color-primary-200);
+        border-radius: 9999px;
+        margin-bottom: 24px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .coming-soon-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        color: var(--color-gray-900);
+        line-height: 1.1;
+        margin-bottom: 24px;
+        letter-spacing: -0.02em;
+    }
+
+    .coming-soon-title span {
+        background: linear-gradient(to right, var(--color-primary-600), #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .coming-soon-desc {
+        font-size: clamp(1.125rem, 2vw, 1.25rem);
+        color: var(--color-gray-600);
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 32px;
+        padding: 60px 0;
+    }
+
+    .feature-box {
+        background: #fff;
+        padding: 32px;
+        border-radius: 24px;
+        border: 1px solid var(--color-gray-200);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .feature-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        background: var(--color-primary-50);
+        color: var(--color-primary-600);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px;
+        font-size: 32px;
+    }
+
+    .feature-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .feature-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: var(--color-gray-900);
+    }
+
+    .feature-text {
+        color: var(--color-gray-600);
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+
+    .notify-section {
+        background: var(--color-gray-900);
+        padding: 80px 0;
+        text-align: center;
+        color: white;
+    }
+
+    .notify-form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-width: 400px;
+        margin: 32px auto 0;
+    }
+
+    @media (min-width: 640px) {
+        .notify-form {
+            flex-direction: row;
+        }
+    }
+
+    .notify-input {
+        flex: 1;
+        padding: 12px 24px;
+        border-radius: 9999px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 1rem;
+    }
+
+    .notify-input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .notify-input:focus {
+        outline: none;
+        border-color: var(--color-primary-500);
+        background: rgba(255, 255, 255, 0.15);
+    }
+</style>
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header class="site-header" id="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo" aria-label="JaénSports inicio">
+                    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="18" cy="18" r="16" stroke="#1A56DB" stroke-width="2.5" />
+                        <polygon points="18,6 22,12 28,13 24,18 25,24 18,21 11,24 12,18 8,13 14,12" fill="#1A56DB"
+                            opacity="0.15" />
+                        <polygon points="18,8 21,13 26,14 23,18 24,22 18,19 12,22 13,18 10,14 15,13" fill="#1A56DB" />
+                    </svg>
+                    Jaén<span>Sports</span>
+                </a>
+                <nav class="nav-links" id="nav-links" aria-label="Navegación principal">
+                    <a href="index.html">Inicio</a>
+                    <a href="parties.html">Partidos</a>
+                    <a href="create.html">Crear Partido</a>
+                    <a href="chat.html">Chat de Grupo</a>
+                    <a href="torneos.html" class="active">Torneos</a>
+                    <a href="profile.html">Mi Perfil</a>
+                    <a href="sobre-nosotros.html">Sobre Nosotros</a>
+                    <a href="contact.html">Contacto</a>
+                </nav>
+                <div class="nav-actions">
+
+                    <a href="#" class="btn btn-sm btn-primary" onclick="event.preventDefault(); openAuthModal()">Iniciar
+                        Sesión</a>
+                    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="coming-soon-hero">
+            <div class="container">
+                <div class="reveal">
+                    <div class="coming-soon-badge">Próximamente</div>
+                    <h1 class="coming-soon-title">Torneos <span>JaénSports</span></h1>
+                    <p class="coming-soon-desc">Prepárate para llevar tu pasión al siguiente nivel. Muy pronto podrás
+                        inscribir a tu equipo, competir en ligas locales y ganar grandes premios.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background:var(--color-gray-50)">
+            <div class="container">
+                <div class="section-header text-center reveal">
+                    <h2>¿Qué estamos preparando—</h2>
+                    <p>Una experiencia competitiva única para la comunidad de Jaén Capital.</p>
+                </div>
+
+                <div class="feature-grid reveal delay-1">
+                    <!-- Item 1 -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <!-- Users Icon -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Equipos desde 5€/Jugador</h3>
+                        <p class="feature-text">Reúne a tus amigos y forma tu equipo de Fútbol Sala, Fútbol 7 o Fútbol
+                            11.
+                            La inscripción es de solo 5€ por persona, sea cual sea la disciplina. Un formato asequible
+                            y
+                            competitivo para disfrutar del deporte.</p>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <!-- Trophy / Award Icon -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="8" r="7"></circle>
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Grandes Premios</h3>
+                        <p class="feature-text">El ganador se lo lleva todo. Gracias a las inscripciones, fundaremos un
+                            premio final increíble para el equipo ganador. Compite por la gloria y por el premio gordo.
+                        </p>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <!-- Referee / Whistle / Watch Icon -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Árbitros Oficiales</h3>
+                        <p class="feature-text">Nada de pachangas descontroladas. Contaremos con árbitros profesionales
+                            para garantizar el juego limpio y que os sintáis como auténticos profesionales en cada
+                            partido.</p>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <!-- Cofee / Bar Icon -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                                <line x1="6" y1="1" x2="6" y2="4"></line>
+                                <line x1="10" y1="1" x2="10" y2="4"></line>
+                                <line x1="14" y1="1" x2="14" y2="4"></line>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Bar / Zona de Descanso</h3>
+                        <p class="feature-text">Tercer tiempo asegurado. Habrá un barra con venta de bocadillos,
+                            Coca-Colas, cervezas y mucho más para que repongáis fuerzas y comentéis las jugadas después
+                            del partido.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to action inside Coming Soon -->
+        <section class="notify-section">
+            <div class="container container-sm reveal">
+                <h2 style="font-size:2rem; margin-bottom:16px; color:white;">¿Quieres ser el primero en apuntarte—</h2>
+                <p style="color:rgba(255,255,255,0.7);font-size:1.1rem">Déjanos tu correo y te avisaremos cuando abramos
+                    las inscripciones del primer torneo. ¡Las plazas van a volar!</p>
+
+                <form class="notify-form"
+                    onsubmit="event.preventDefault(); showToast('success', '¡Suscrito!', 'Te avisaremos en cuanto haya novedades sobre los torneos.');">
+                    <input type="email" class="notify-input" placeholder="tu@email.com" required>
+                    <button type="submit" class="btn btn-primary"
+                        style="white-space:nowrap; border-radius:9999px;">Avísame</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="color:var(--color-white)">
+                        <svg viewBox="0 0 36 36" fill="none" style="width:32px;height:32px">
+                            <circle cx="18" cy="18" r="16" stroke="#3B82F6" stroke-width="2.5" />
+                            <polygon points="18,8 21,13 26,14 23,18 24,22 18,19 12,22 13,18 10,14 15,13"
+                                fill="#3B82F6" />
+                        </svg>
+                        Jaén<span>Sports</span>
+                    </a>
+                    <p>La plataforma deportiva de Jaén Capital. Organiza partidos, coordina equipos y disfruta del
+                        deporte con
+                        tecnología inteligente.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Plataforma</h4>
+                    <a href="parties.html">Partidos</a>
+                    <a href="create.html">Crear Partido</a>
+                    <a href="profile.html">Mi Perfil</a>
+                    <a href="contact.html">Contacto</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Deportes</h4>
+                    <a href="parties.html?sport=futsal">Fútbol Sala</a>
+                    <a href="parties.html?sport=futbol11">Fútbol 11</a>
+                    <a href="parties.html?sport=futbol7">Fútbol 7</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="privacidad.html">Política de privacidad</a>
+                    <a href="terminos.html">Términos de uso</a>
+                    <a href="cookies.html">Cookies</a>
+                    <a href="https://patronatodeportesjaen.es/" target="_blank" rel="noopener">Patronato
+                        de
+                        Deportes</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 JaénSports. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal & Core Scripts -->
+    <div class="toast-container" id="toast-container"></div>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/svg/icons.js"></script>
+    <script src="backend/database.js"></script>
+    <script type="module">import { supabase } from './backend/supabase.js'; window.supabase = supabase;</script>
+    <script src="backend/auth.js"></script>
+    <script src="backend/api.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/auth-modal.js"></script>
+</body>
+
+</html>

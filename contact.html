@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto — JaénSports | Plataforma Deportiva de Jaén</title>
+    <meta name="description"
+        content="Contacta con JaénSports. Resuelve tus dudas sobre partidos, inscripciones y pagos en Jaén Capital.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jaensports.es/contact.html">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/components-ext.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
+    <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ContactPage","name":"Contacto JaénSports","url":"https://jaensports.es/contact.html","description":"Página de contacto de JaénSports"}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header" id="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo"><svg viewBox="0 0 36 36" fill="none">
+                        <circle cx="18" cy="18" r="16" stroke="#1A56DB" stroke-width="2.5" />
+                        <polygon points="18,8 21,13 26,14 23,18 24,22 18,19 12,22 13,18 10,14 15,13" fill="#1A56DB" />
+                    </svg>Jaén<span>Sports</span></a>
+                <nav class="nav-links" id="nav-links"><a href="index.html">Inicio</a><a
+                        href="parties.html">Partidos</a><a href="create.html">Crear Partido</a><a href="profile.html">Mi
+                        Perfil</a><a href="sobre-nosotros.html">Sobre Nosotros</a><a href="contact.html"
+                        class="active">Contacto</a></nav>
+                <div class="nav-actions">
+
+                    <a href="#" class="btn btn-sm btn-primary" onclick="event.preventDefault(); openAuthModal()">Iniciar
+                        Sesión</a>
+                    <button class="menu-toggle" id="menu-toggle"
+                        aria-label="Abrir menú"><span></span><span></span><span></span></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>Contacto</h1>
+                <p>¿Tienes alguna duda o sugerencia? Escríbenos y te respondemos en menos de 24 horas.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="contact-grid reveal">
+                    <!-- Contact Form -->
+                    <div class="contact-form-card">
+                        <h3 style="margin-bottom:var(--space-6)">Envíanos un mensaje</h3>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label class="form-label" for="contact-name">Nombre</label>
+                                <input type="text" class="form-input" id="contact-name" placeholder="Tu nombre"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="contact-email">Email</label>
+                                <input type="email" class="form-input" id="contact-email" placeholder="tu@email.com"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="contact-subject">Asunto</label>
+                                <select class="form-select" id="contact-subject" required>
+                                    <option value="">Selecciona un asunto</option>
+                                    <option value="general">Consulta general</option>
+                                    <option value="bug">Reportar un problema</option>
+                                    <option value="payment">Pagos e inscripciones</option>
+                                    <option value="suggestion">Sugerencia</option>
+                                    <option value="collaboration">Colaboración</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="contact-message">Mensaje</label>
+                                <textarea class="form-textarea" id="contact-message"
+                                    placeholder="Cuéntanos en qué podemos ayudarte..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width:100%">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    style="width:16px;height:16px">
+                                    <line x1="22" y1="2" x2="11" y2="13" />
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                                </svg>
+                                Enviar Mensaje
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 style="font-size:var(--text-base);margin-bottom:var(--space-1)">Email</h4>
+                                <p style="font-size:var(--text-sm)">info@jaensports.es</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 style="font-size:var(--text-base);margin-bottom:var(--space-1)">Teléfono</h4>
+                                <p style="font-size:var(--text-sm)">+34 953 123 456</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 style="font-size:var(--text-base);margin-bottom:var(--space-1)">Ubicación</h4>
+                                <p style="font-size:var(--text-sm)">Jaén Capital, Andalucía, España</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"
+                                style="background:rgba(16,185,129,0.1);color:var(--color-accent)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" y1="14" x2="21" y2="3" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 style="font-size:var(--text-base);margin-bottom:var(--space-1)">Patronato de
+                                    Deportes</h4>
+                                <p style="font-size:var(--text-sm)"><a href="https://patronatodeportesjaen.es/"
+                                        target="_blank" rel="noopener"
+                                        style="color:var(--color-primary-500)">patronatodeportesjaen.es</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="map-container">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50436.76!2d-3.8!3d37.77!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6dd569b3c9c637%3A0xc66c2df5e6c1c9ce!2sJa%C3%A9n!5e0!3m2!1ses!2ses!4v1709000000000"
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                title="Mapa de Jaén Capital"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section" style="background:var(--color-white)">
+            <div class="container container-sm">
+                <div class="section-header reveal">
+                    <span class="tag">Preguntas frecuentes</span>
+                    <h2>¿Necesitas ayuda?</h2>
+                </div>
+                <div id="faq-list">
+                    <!-- Rendered by JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><a href="index.html" class="logo" style="color:var(--color-white)"><svg
+                            viewBox="0 0 36 36" fill="none" style="width:32px;height:32px">
+                            <circle cx="18" cy="18" r="16" stroke="#3B82F6" stroke-width="2.5" />
+                            <polygon points="18,8 21,13 26,14 23,18 24,22 18,19 12,22 13,18 10,14 15,13"
+                                fill="#3B82F6" />
+                        </svg>Jaén<span>Sports</span></a>
+                    <p>La plataforma deportiva de Jaén Capital.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Plataforma</h4><a href="parties.html">Partidos</a> <a href="create.html">Crear Partido</a>
+                    <a href="chat.html">Chat de Grupo</a>
+                    <a href="torneos.html">Torneos</a>
+                    <a href="profile.html">Mi Perfil</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Deportes</h4><a href="parties.html?sport=futsal">Fútbol Sala</a><a
+                        href="parties.html?sport=futbol11">Fútbol 11</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4><a href="privacidad.html">Privacidad</a><a href="terminos.html">Términos</a><a
+                        href="cookies.html">Cookies</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 JaénSports.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="chat-fab" id="chat-fab" aria-label="Abrir asistente IA"><svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        </svg></button>
+    <div class="chat-panel" id="chat-panel">
+        <div class="chat-header">
+            <div class="chat-status"></div>
+            <div>
+                <h4>Asistente JaénSports</h4>
+                <p>IA</p>
+            </div><button class="modal-close" id="chat-close" style="margin-left:auto;color:rgba(255,255,255,0.7)"
+                aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    style="width:18px;height:18px">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg></button>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-input-area"><input type="text" class="chat-input" id="chat-input"
+                placeholder="Escribe tu pregunta..."><button class="chat-send" id="chat-send" aria-label="Enviar"><svg
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13" />
+                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                </svg></button></div>
+    </div>
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="assets/js/config.js"></script>
+    <script src="assets/svg/icons.js"></script>
+    <script src="backend/database.js"></script>
+    <script type="module">import { supabase } from './backend/supabase.js'; window.supabase = supabase;</script>
+    <script src="backend/auth.js"></script>
+    <script src="backend/api.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/auth-modal.js"></script>
+    <script src="assets/js/notifications.js"></script>
+    <script src="ai/chatAssistant.js"></script>
+</body>
+
+</html>

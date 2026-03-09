@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JaénSports — Organiza y únete a partidos deportivos en Jaén</title>
+  <meta name="description"
+    content="La plataforma líder en Jaén para organizar partidos de fútbol sala, fútbol 11, pádel y más. Crea tu partido, gestiona pagos y coordina tu equipo con IA.">
+  <meta name="keywords"
+    content="partidos fútbol Jaén, fútbol sala Jaén, organizar partido, reservar pista Jaén, deporte Jaén">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="JaénSports — Organiza partidos deportivos en Jaén Capital">
+  <meta property="og:description"
+    content="Crea y únete a partidos de fútbol sala, fútbol 11 y más deportes en Jaén. Chat grupal, pagos automáticos y gestión inteligente.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <link rel="canonical" href="https://jaensports.es/">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/components-ext.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "JaénSports",
+    "url": "https://jaensports.es",
+    "description": "Plataforma de coordinación deportiva para Jaén Capital",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://jaensports.es/parties?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "JaénSports",
+    "url": "https://jaensports.es",
+    "logo": "https://jaensports.es/assets/images/logo.png",
+    "sameAs": ["https://instagram.com/jaensports","https://twitter.com/jaensports"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Jaén",
+      "addressRegion": "Andalucía",
+      "addressCountry": "ES"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"¿Cómo puedo unirme a un partido en Jaén?","acceptedAnswer":{"@type":"Answer","text":"Regístrate en JaénSports, busca los partidos disponibles por deporte y ubicación, y pulsa 'Apúntate'. Recibirás confirmación inmediata y acceso al chat grupal."}},
+      {"@type":"Question","name":"¿Cuánto cuesta usar JaénSports?","acceptedAnswer":{"@type":"Answer","text":"La plataforma es gratuita. Solo pagas tu parte del alquiler de la pista, que se divide automáticamente entre los jugadores inscritos."}},
+      {"@type":"Question","name":"¿Cómo se gestionan los pagos?","acceptedAnswer":{"@type":"Answer","text":"Calculamos automáticamente el coste por jugador. Los jugadores deciden ellos cómo se pagan y reparten el dinero en el chat de grupo."}},
+      {"@type":"Question","name":"¿Puedo cancelar mi inscripción?","acceptedAnswer":{"@type":"Answer","text":"Sí. Puedes cancelar tu inscripción en cualquier momento. La plaza se reabre automáticamente para otros jugadores y se notifica al grupo."}},
+      {"@type":"Question","name":"¿Qué deportes están disponibles?","acceptedAnswer":{"@type":"Answer","text":"Fútbol sala (10 jugadores), fútbol 7 (14 jugadores) y fútbol 11 (22 jugadores). Cada deporte tiene su cupo automático."}}
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo" aria-label="JaénSports inicio">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="16" stroke="#1A56DB" stroke-width="2.5" />
+            <polygon points="18,6 22,12 28,13 24,18 25,24 18,21 11,24 12,18 8,13 14,12" fill="#1A56DB" opacity="0.15" />
+            <polygon points="18,8 21,13 26,14 23,18 24,22 18,19 12,22 13,18 10,14 15,13" fill="#1A56DB" />
+          </svg>
+          Jaén<span>Sports</span>
+        </a>
+        <nav class="nav-links" id="nav-links" aria-label="Navegación principal">
+          <a href="index.html" class="active">Inicio</a>
+          <a href="parties.html">Partidos</a>
+          <a href="create.html">Crear Partido</a>
+          <a href="chat.html">Chat de Grupo</a>
+          <a href="torneos.html">Torneos</a>
+          <a href="profile.html">Mi Perfil</a>
+          <a href="sobre-nosotros.html">Sobre Nosotros</a>
+          <a href="contact.html">Contacto</a>
+        </nav>
+        <div class="nav-actions">
+
+          <a href="#" class="btn btn-sm btn-primary" onclick="event.preventDefault(); openAuthModal()">Iniciar
+            Sesión</a>
+          <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <p class="tag"
+              style="color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.1em;font-size:var(--text-sm);font-weight:var(--weight-semibold);margin-bottom:var(--space-4)">
+              Plataforma deportiva de Jaén Capital</p>
+            <h1>¿No tienes con quién <span>jugar al fútbol</span>?</h1>
+            <p>Organiza y únete a partidos de fútbol sala, fútbol 11, pádel y más deportes en Jaén. Chat grupal con IA,
+              pagos automáticos y coordinación inteligente.</p>
+            <div class="hero-actions">
+              <a href="parties.html" class="btn btn-primary btn-lg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  style="width:20px;height:20px">
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                Buscar Partido
+              </a>
+              <a href="create.html" class="btn btn-secondary btn-lg"
+                style="background-color:var(--color-white);color:#111827;border:none;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  style="width:20px;height:20px">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+                Crea tu Partido
+              </a>
+            </div>
+            <div class="hero-stats">
+              <div>
+                <div class="hero-stat-value">—</div>
+                <div class="hero-stat-label">Jugadores registrados</div>
+              </div>
+              <div>
+                <div class="hero-stat-value">—</div>
+                <div class="hero-stat-label">Partidos creados</div>
+              </div>
+              <div>
+                <div class="hero-stat-value">—</div>
+                <div class="hero-stat-label">Partidos abiertos</div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <img src="assets/images/hero-sports.png" alt="Jugadores de fútbol sala en Jaén" class="hero-image"
+              width="580" height="400" loading="eager">
+            <div class="hero-float-card card-1">
+              <div class="card-icon" style="background:rgba(16,185,129,0.1);color:#10B981">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  style="width:20px;height:20px">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <h5>Partido confirmado</h5>
+              <p>Fútbol Sala · 20:00h</p>
+            </div>
+            <div class="hero-float-card card-2">
+              <div class="card-icon" style="background:rgba(59,130,246,0.1);color:#3B82F6">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  style="width:20px;height:20px">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <h5>8/10 jugadores</h5>
+              <p>¡Quedan 2 plazas!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="tag">Funcionalidades</span>
+          <h2>Todo lo que necesitas para jugar</h2>
+          <p>Una plataforma completa que resuelve la coordinación, los pagos y la comunicación de tus partidos
+            deportivos.</p>
+        </div>
+        <div class="grid grid-3" id="features-grid">
+          <!-- Features rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="tag">Cómo funciona</span>
+          <h2>Tres pasos y a jugar</h2>
+          <p>Desde que abres la app hasta que pisas la cancha, en menos de 2 minutos.</p>
+        </div>
+        <div class="how-steps">
+          <div class="how-step reveal delay-1">
+            <div class="how-step-number">1</div>
+            <h3>Busca o crea</h3>
+            <p>Encuentra partidos cerca de ti o crea el tuyo propio eligiendo deporte, pista, fecha y hora.</p>
+          </div>
+          <div class="how-step reveal delay-2">
+            <div class="how-step-number">2</div>
+            <h3>Apúntate</h3>
+            <p>Inscríbete con un clic. Los jugadores deciden ellos cómo se pagan y reparten el dinero en el chat de
+              grupo.</p>
+          </div>
+          <div class="how-step reveal delay-3">
+            <div class="how-step-number">3</div>
+            <h3>Juega y repite</h3>
+            <p>Recibe recordatorios, coordina por chat con IA y disfruta del partido. Tu historial queda guardado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ UPCOMING MATCHES ============ -->
+    <section class="section" id="upcoming" style="background:var(--color-gray-100)">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="tag">Próximos partidos</span>
+          <h2>Partidos disponibles en Jaén</h2>
+          <p>Únete a los partidos que están buscando jugadores esta semana.</p>
+        </div>
+        <div class="matches-grid" id="upcoming-matches">
+          <!-- Rendered by JS -->
+        </div>
+        <div class="text-center" style="margin-top:var(--space-10)">
+          <a href="parties.html" class="btn btn-primary">Ver todos los partidos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FACILITIES ============ -->
+    <section class="section" id="facilities">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="tag">Pistas</span>
+          <h2>Instalaciones deportivas en Jaén</h2>
+          <p>Consulta las pistas disponibles del Patronato Municipal de Deportes y reserva directamente.</p>
+        </div>
+        <div class="grid grid-3" id="facilities-grid">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq" style="background:var(--color-white)">
+      <div class="container container-sm">
+        <div class="section-header reveal">
+          <span class="tag">Preguntas frecuentes</span>
+          <h2>¿Tienes dudas?</h2>
+          <p>Resolvemos las preguntas más habituales sobre JaénSports.</p>
+        </div>
+        <div id="faq-list">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="section"
+      style="background:linear-gradient(135deg,var(--color-primary-900),var(--color-primary-700));color:var(--color-white);text-align:center">
+      <div class="container">
+        <div class="reveal" style="max-width:640px;margin:0 auto">
+          <h2 style="color:var(--color-white);margin-bottom:var(--space-4)">¿Listo para jugar?</h2>
+          <p style="color:rgba(255,255,255,0.7);font-size:var(--text-lg);margin-bottom:var(--space-8)">Únete a la
+            comunidad deportiva de Jaén y no te quedes sin tu partido.</p>
+          <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap">
+            <a href="create.html" class="btn btn-accent btn-lg">Crea tu Partido</a>
+            <a href="parties.html" class="btn btn-secondary btn-lg"
+              style="background-color:var(--color-white);color:#111827;border:none;">Explorar Partidos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="color:var(--color-white)">
+            <svg viewBox="0 0 36 36" fill="none" style="width:32px;height:32px">
+              <circle cx="18" cy="18" r="16" stroke="#3B82F6" stroke-width="2.5" />
+              <polygon points="18,8 21,13 26,14 23,18 24,22 18,19 12,22 13,18 10,14 15,13" fill="#3B82F6" />
+            </svg>
+            Jaén<span>Sports</span>
+          </a>
+          <p>La plataforma deportiva de Jaén Capital. Organiza partidos, coordina equipos y disfruta del deporte con
+            tecnología inteligente.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Plataforma</h4>
+          <a href="parties.html">Partidos</a>
+          <a href="create.html">Crear Partido</a>
+          <a href="profile.html">Mi Perfil</a>
+          <a href="contact.html">Contacto</a>
+        </div>
+        <div class="footer-col">
+          <h4>Deportes</h4>
+          <a href="parties.html?sport=futsal">Fútbol Sala</a>
+          <a href="parties.html?sport=futbol11">Fútbol 11</a>
+          <a href="parties.html?sport=futbol7">Fútbol 7</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="privacidad.html">Política de privacidad</a>
+          <a href="terminos.html">Términos de uso</a>
+          <a href="cookies.html">Cookies</a>
+          <a href="https://patronatodeportesjaen.es/" target="_blank" rel="noopener">Patronato de
+            Deportes</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 JaénSports. Todos los derechos reservados.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              style="width:18px;height:18px">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg></a>
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              style="width:18px;height:18px">
+              <path
+                d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+            </svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              style="width:18px;height:18px">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chat FAB -->
+  <button class="chat-fab" id="chat-fab" aria-label="Abrir asistente IA">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+    </svg>
+    <span class="notification-dot"></span>
+  </button>
+
+  <!-- Chat Panel -->
+  <div class="chat-panel" id="chat-panel">
+    <div class="chat-header">
+      <div class="chat-status"></div>
+      <div>
+        <h4>Asistente JaénSports</h4>
+        <p>IA · Siempre disponible</p>
+      </div>
+      <button class="modal-close" id="chat-close" style="margin-left:auto;color:rgba(255,255,255,0.7)"
+        aria-label="Cerrar chat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+    <div class="chat-messages" id="chat-messages"></div>
+    <div class="chat-input-area">
+      <input type="text" class="chat-input" id="chat-input" placeholder="Escribe tu pregunta..."
+        aria-label="Mensaje al asistente">
+      <button class="chat-send" id="chat-send" aria-label="Enviar mensaje">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="22" y1="2" x2="11" y2="13" />
+          <polygon points="22 2 15 22 11 13 2 9 22 2" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Match detail modal (para botones Chat / Apúntate en inicio) -->
+  <div class="modal-overlay" id="match-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modal-match-title">Detalle del partido</h3>
+        <button class="modal-close" id="modal-close" aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-match-body"></div>
+      <div class="modal-footer" id="modal-match-footer">
+        <button class="btn btn-ghost" id="modal-cancel-btn">Cerrar</button>
+        <button class="btn btn-primary" id="modal-join-btn">Apúntate al partido</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scripts: config (generado en build con SUPABASE_URL y SUPABASE_ANON_KEY) -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/svg/icons.js"></script>
+  <script src="backend/database.js"></script>
+  <script type="module">
+    import { supabase } from './backend/supabase.js';
+    window.supabase = supabase;
+  </script>
+  <script src="backend/auth.js"></script>
+  <script src="backend/api.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/parties.js"></script>
+  <script src="assets/js/auth-modal.js"></script>
+  <script src="assets/js/notifications.js"></script>
+  <script src="ai/chatAssistant.js"></script>
+  <script src="ai/reminders.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+{
+  "project": "JaénSports",
+  "locale": "es-ES",
+  "targetCity": "Jaén Capital, Andalucía, España",
+  "pages": {
+    "index": {
+      "title": "JaénSports — Organiza y únete a partidos deportivos en Jaén",
+      "description": "La plataforma líder en Jaén para organizar partidos de fútbol sala, fútbol 11, pádel y más. Crea tu partido, gestiona pagos y coordina tu equipo con IA.",
+      "h1": "¿No tienes con quién jugar al fútbol?",
+      "intent": "Informacional + Transaccional",
+      "keywords": [
+        "partidos fútbol Jaén",
+        "organizar partido Jaén",
+        "fútbol sala Jaén",
+        "deporte Jaén Capital",
+        "jugar fútbol Jaén"
+      ]
+    },
+    "parties": {
+      "title": "Partidos Disponibles en Jaén — Fútbol Sala, Fútbol 11, Pádel",
+      "description": "Encuentra y únete a partidos de fútbol sala, fútbol 11, pádel y más en Jaén Capital. Filtra por deporte, fecha y ubicación.",
+      "h1": "Partidos Disponibles",
+      "intent": "Transaccional",
+      "keywords": [
+        "partidos disponibles Jaén",
+        "unirse a partido fútbol",
+        "buscar partido fútbol sala",
+        "calendario partidos Jaén"
+      ]
+    },
+    "create": {
+      "title": "Crear Partido en Jaén — Fútbol, Pádel y más",
+      "description": "Crea tu propio partido de fútbol sala, fútbol 11, pádel u otros deportes en Jaén. Elige pista, fecha y gestiona inscripciones automáticamente.",
+      "h1": "Crea tu Partido",
+      "intent": "Transaccional",
+      "keywords": [
+        "crear partido fútbol Jaén",
+        "organizar partido Jaén",
+        "reservar pista Jaén"
+      ]
+    },
+    "profile": {
+      "title": "Mi Perfil — Historial y Estadísticas",
+      "description": "Consulta tu perfil de jugador, historial de partidos, pagos y estadísticas en JaénSports.",
+      "h1": "Mi Perfil",
+      "intent": "Navegacional",
+      "keywords": [
+        "perfil jugador",
+        "historial partidos",
+        "estadísticas deportivas"
+      ]
+    },
+    "contact": {
+      "title": "Contacto — JaénSports",
+      "description": "Contacta con JaénSports. Resuelve tus dudas sobre partidos, inscripciones y pagos en Jaén Capital.",
+      "h1": "Contacto",
+      "intent": "Navegacional",
+      "keywords": [
+        "contacto JaénSports",
+        "soporte deportes Jaén"
+      ]
+    }
+  },
+  "localKeywords": {
+    "general": [
+      "deporte Jaén",
+      "actividades deportivas Jaén",
+      "jugar deporte Jaén Capital",
+      "polideportivo Jaén",
+      "Patronato Deportes Jaén"
+    ],
+    "futsal": [
+      "fútbol sala Jaén",
+      "futsal Jaén Capital",
+      "partido fútbol sala Jaén",
+      "pista fútbol sala Jaén"
+    ],
+    "futbol11": [
+      "fútbol 11 Jaén",
+      "campo fútbol Jaén",
+      "partido fútbol once Jaén"
+    ],
+    "padel": [
+      "pádel Jaén",
+      "pista pádel Jaén Capital",
+      "jugar pádel Jaén"
+    ],
+    "basket": [
+      "baloncesto Jaén",
+      "basket Jaén Capital",
+      "cancha baloncesto Jaén"
+    ],
+    "tenis": [
+      "tenis Jaén",
+      "pista tenis Jaén Capital"
+    ]
+  },
+  "voiceSearchFAQs": [
+    {
+      "question": "¿Dónde puedo jugar al fútbol sala en Jaén?",
+      "answer": "En JaénSports puedes encontrar partidos de fútbol sala en instalaciones como el Pabellón Salobreja, Pabellón Fuentezuelas y pistas exteriores."
+    },
+    {
+      "question": "¿Cuánto cuesta jugar un partido de fútbol en Jaén?",
+      "answer": "El coste medio por jugador en JaénSports es de 3 a 5€ por partido, ya que dividimos el alquiler de la pista entre todos los inscritos."
+    },
+    {
+      "question": "¿Cómo puedo organizar un partido de pádel en Jaén?",
+      "answer": "Entra en JaénSports, pulsa Crear Partido, selecciona pádel, elige el Club Pádel Jaén y fija fecha y hora. Los jugadores se unirán automáticamente."
+    },
+    {
+      "question": "¿Hay partidos de baloncesto en Jaén Capital?",
+      "answer": "Sí. En JaénSports organizamos partidos casuales de baloncesto en las diferentes instalaciones deportivas de la ciudad."
+    },
+    {
+      "question": "¿Cómo pago mi parte del partido?",
+      "answer": "Puedes pagar cómodamente con Bizum o tarjeta a través de Stripe directamente desde la plataforma."
+    },
+    {
+      "question": "¿Puedo cancelar después de inscribirme?",
+      "answer": "Sí, puedes cancelar en cualquier momento. Tu plaza se reabrirá para otros jugadores automáticamente."
+    }
+  ],
+  "entities": {
+    "sports": [
+      "fútbol sala",
+      "fútbol 11",
+      "pádel",
+      "baloncesto",
+      "tenis"
+    ],
+    "facilities": [
+      "Pabellón Salobreja",
+      "Pabellón Fuentezuelas",
+      "Pista Exterior Salobreja",
+      "Pistas Aire Libre Fuentezuelas",
+      "Campo fútbol 7 Salobreja"
+    ],
+    "institutions": [
+      "Patronato Municipal de Deportes de Jaén",
+      "Ayuntamiento de Jaén"
+    ],
+    "location": [
+      "Jaén Capital",
+      "Andalucía",
+      "España"
+    ]
+  },
+  "contentHierarchy": {
+    "primary": [
+      "organizar partidos",
+      "unirse a partidos",
+      "gestión de pagos"
+    ],
+    "secondary": [
+      "chat grupal IA",
+      "notificaciones automáticas",
+      "calendario visual"
+    ],
+    "tertiary": [
+      "perfiles de usuario",
+      "historial de partidos",
+      "estadísticas"
+    ]
+  },
+  "schemaTypes": [
+    "WebSite",
+    "Organization",
+    "FAQPage",
+    "SportsEvent",
+    "LocalBusiness",
+    "ContactPage",
+    "Person"
+  ]
+}
