@@ -179,12 +179,14 @@
                     <p class="wp-bottom-link" style="margin-top:16px;">¿Aún no tienes cuenta? <span class="wp-link" onclick="window.switchScreen('register')">Regístrate</span></p>
                 </div>
 
-                <!-- PANTALLA 5: OTP VERIFICATION -->
+                <!-- PANTALLA 5: OTP VERIFICATION (demo: no se envía email real; usa 123456) -->
                 <div class="wp-screen" id="wp-screen-otp">
                     <h2 class="wp-title">Verifica tu e-mail</h2>
-                    <p style="font-size: 14px; color: #4b5563; margin-bottom: 24px; line-height: 1.5;">
-                        Hemos enviado un código secreto de 6 dígitos a <br><strong id="wp-otp-email" style="color:#111827;"></strong>.<br>Introduce el código abajo para confirmar que es tuyo.
+                    <p style="font-size: 14px; color: #4b5563; margin-bottom: 12px; line-height: 1.5;">
+                        Para esta demo, <strong>no se envía ningún correo</strong>. Introduce el código de prueba:
                     </p>
+                    <p style="font-size: 15px; font-weight: 700; color: var(--color-primary-600); margin-bottom: 24px;">123456</p>
+                    <p style="font-size: 13px; color: #6b7280; margin-bottom: 24px;">(En producción podrías recibir un enlace de confirmación de Supabase en tu correo; revisa también la carpeta de spam.)</p>
 
                     <div class="wp-otp-inputs" id="wp-otp-container">
                         <input type="text" class="wp-otp-input" maxlength="1" pattern="[0-9]*" inputmode="numeric">
@@ -195,11 +197,9 @@
                         <input type="text" class="wp-otp-input" maxlength="1" pattern="[0-9]*" inputmode="numeric">
                     </div>
 
-                    <div id="wp-otp-error" style="color: #ef4444; font-size: 13px; margin-bottom: 12px; text-align:center; display: none;">Código incorrecto. El código de prueba es 123456.</div>
+                    <div id="wp-otp-error" style="color: #ef4444; font-size: 13px; margin-bottom: 12px; text-align:center; display: none;">Código incorrecto. Usa 123456.</div>
 
                     <button class="wp-btn-primary" id="wp-btn-verify-otp">Verificar y acceder</button>
-                    
-                    <p class="wp-bottom-link" style="margin-top:24px;">¿No lo has recibido? <span class="wp-link" onclick="alert('Se ha reenviado un nuevo código (mock)')">Reenviar código</span></p>
                 </div>
 
             </div>
@@ -446,9 +446,15 @@
         });
     }
 
-    // Init on DOM ready
+    // Init on DOM ready y refrescar header varias veces (por si la sesión de Google llega un poco tarde)
     document.addEventListener('DOMContentLoaded', () => {
         createAuthModal();
         window.updateHeaderAuth();
+        setTimeout(window.updateHeaderAuth, 600);
+        setTimeout(window.updateHeaderAuth, 2000);
+    });
+    // Al volver a la pestaña, actualizar por si acabo de llegar del redirect de Google
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible' && typeof window.updateHeaderAuth === 'function') window.updateHeaderAuth();
     });
 })();
