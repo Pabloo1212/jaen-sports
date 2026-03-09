@@ -435,6 +435,9 @@
 
         const badge = document.getElementById('notification-count');
         if (badge && !isLoggedIn) badge.style.display = 'none';
+
+        // Actualizar también el contenido del perfil si estamos en esa página
+        if (isLoggedIn && typeof window.renderProfileData === 'function') window.renderProfileData();
     };
 
     // Auto-detect login from Supabase and update header dynamically

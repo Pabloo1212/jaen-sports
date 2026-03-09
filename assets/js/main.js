@@ -372,10 +372,11 @@ function initProfilePage() {
   }
 
   renderProfileData();
+  window.renderProfileData = renderProfileData;
 }
 
 function renderProfileData() {
-  const user = JaenAuth.getCurrentUser();
+  const user = typeof JaenAuth !== 'undefined' ? JaenAuth.getCurrentUser() : null;
   const profileHeader = document.getElementById('profile-header');
   if (!profileHeader) return;
 
