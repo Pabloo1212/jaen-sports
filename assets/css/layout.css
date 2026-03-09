@@ -161,6 +161,12 @@
     box-shadow: var(--shadow-sm);
 }
 
+/* Lock scroll when mobile menu open */
+body.nav-open {
+    overflow: hidden;
+    touch-action: none;
+}
+
 .header-inner {
     display: flex;
     align-items: center;
@@ -382,7 +388,8 @@
 
     .nav-links {
         display: none;
-        position: fixed;
+        /* Use absolute inside expanded header to avoid backdrop-filter fixed-position quirks */
+        position: absolute;
         top: 64px;
         left: 0;
         right: 0;
@@ -395,12 +402,26 @@
         z-index: var(--z-overlay);
         padding: var(--space-8) var(--space-6);
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
         box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
 
     .nav-links.open {
         display: flex;
         animation: fadeIn 0.3s ease;
+    }
+
+    /* Expand header to full height when menu open */
+    .site-header.nav-open {
+        height: 100dvh;
+        background: #ffffff;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        box-shadow: var(--shadow-sm);
+    }
+    .site-header.nav-open.scrolled {
+        background: #ffffff;
     }
 
     .nav-links a {
