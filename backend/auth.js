@@ -11,6 +11,7 @@ const JaenAuth = (() => {
         const { data: { session } } = await window.supabase.auth.getSession();
         if (session && session.user) {
             await fetchUserProfile(session.user.id, session.user.user_metadata);
+            if (typeof window.updateHeaderAuth === 'function') window.updateHeaderAuth();
         }
     }
 
